@@ -52,8 +52,8 @@ public class ArticleAdapter extends ArrayAdapter<Articles> {
 
         Articles item = getItem(position);
 
-        vh.textViewName.setText(item.getTitle());
-        vh.textViewEmail.setText(item.getDescription());
+        vh.tvTitle.setText(item.getTitle());
+        vh.tvDescription.setText(item.getDescription());
         Picasso.with(context).load(item.getUrlToImage()).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(vh.imageView);
 
         return vh.rootView;
@@ -62,20 +62,20 @@ public class ArticleAdapter extends ArrayAdapter<Articles> {
     private static class ViewHolder {
         public final RelativeLayout rootView;
         public final ImageView imageView;
-        public final TextView textViewName;
-        public final TextView textViewEmail;
+        public final TextView tvTitle;
+        public final TextView tvDescription;
 
-        private ViewHolder(RelativeLayout rootView, ImageView imageView, TextView textViewName, TextView textViewEmail) {
+        private ViewHolder(RelativeLayout rootView, ImageView imageView, TextView tvTitle, TextView tvDescription) {
             this.rootView = rootView;
             this.imageView = imageView;
-            this.textViewName = textViewName;
-            this.textViewEmail = textViewEmail;
+            this.tvTitle = tvTitle;
+            this.tvDescription = tvDescription;
         }
 
         public static ViewHolder create(RelativeLayout rootView) {
             ImageView imageView = (ImageView) rootView.findViewById(R.id.imageView);
-            TextView textViewName = (TextView) rootView.findViewById(R.id.textViewName);
-            TextView textViewEmail = (TextView) rootView.findViewById(R.id.textViewEmail);
+            TextView textViewName = (TextView) rootView.findViewById(R.id.textViewTitle);
+            TextView textViewEmail = (TextView) rootView.findViewById(R.id.textViewDescription);
             return new ViewHolder(rootView, imageView, textViewName, textViewEmail);
         }
     }
