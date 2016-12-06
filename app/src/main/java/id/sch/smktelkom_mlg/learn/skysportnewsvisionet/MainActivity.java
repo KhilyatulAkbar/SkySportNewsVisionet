@@ -1,6 +1,7 @@
 package id.sch.smktelkom_mlg.learn.skysportnewsvisionet;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -25,6 +26,7 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String ARTICLE = "article";
     /**
      * Views
      */
@@ -57,7 +59,9 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Snackbar.make(parentView, articlesList.get(position).getTitle() + " => " + articlesList.get(position).getAuthor(), Snackbar.LENGTH_LONG).show();
+                Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+                intent.putExtra(ARTICLE, articlesList.get(position));
+                startActivity(intent);
             }
         });
 

@@ -3,11 +3,13 @@ package id.sch.smktelkom_mlg.learn.skysportnewsvisionet.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * Created by Mang Arblu on 12/6/2016.
  */
 
-public class Articles {
+public class Articles implements Serializable {
     @SerializedName("author")
     @Expose
     private String author;
